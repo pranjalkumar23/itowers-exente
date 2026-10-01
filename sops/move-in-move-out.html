@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Move-In / Move-Out SOP — iTowers Exente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest: #1A3622;
+      --leaf:   #2a5035;
+      --ivory:  #FAF8F4;
+      --sage:   #E8EBE4;
+      --ink:    #1a1a1a;
+      --mute:   #666;
+      --gold:   #c8b97a;
+      --border: #e2ddd4;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--ivory);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* ── Site header ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 244, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 120, 100, 0.2);
+      padding: 12px 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .site-header .logo-link img {
+      height: 44px;
+      width: auto;
+    }
+    .site-header nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .site-header nav a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .site-header nav a:hover { opacity: 1; }
+    .site-header .back-crumb {
+      font-size: 0.78rem;
+      color: var(--mute);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .site-header .back-crumb a {
+      color: var(--forest);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .site-header .back-crumb a:hover { text-decoration: underline; }
+    @media (max-width: 680px) {
+      .site-header nav { display: none; }
+    }
+
+    /* ── Page wrapper ── */
+    .page { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* ── Hero header ── */
+    .sop-hero {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .sop-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: #8a7d5a;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .sop-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: #8a7d5a;
+    }
+    .sop-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--forest);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .sop-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--mute);
+    }
+    .sop-meta span { display: flex; align-items: center; gap: 0.35rem; }
+    .sop-meta strong { color: var(--ink); }
+
+    /* ── Intro box ── */
+    .intro-box {
+      background: var(--sage);
+      border-left: 3px solid var(--forest);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.9rem;
+      color: #333;
+      line-height: 1.65;
+    }
+
+    /* ── Section ── */
+    .section { margin-bottom: 2.25rem; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .section-num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--forest);
+      color: var(--ivory);
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--forest);
+    }
+    .section-body {
+      padding-left: 3rem;
+    }
+
+    /* ── Charge cards ── */
+    .charge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .charge-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .charge-card .label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mute);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .charge-card .amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .charge-card .note {
+      font-size: 0.78rem;
+      color: var(--mute);
+      line-height: 1.4;
+    }
+    .charge-card.highlight {
+      background: var(--forest);
+      border-color: var(--forest);
+    }
+    .charge-card.highlight .label { color: rgba(250,248,244,0.65); }
+    .charge-card.highlight .amount { color: var(--ivory); }
+    .charge-card.highlight .note { color: rgba(250,248,244,0.7); }
+
+    /* ── List styles ── */
+    .rule-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .rule-list li {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+    .rule-list li::before {
+      content: '—';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.02em;
+    }
+
+    /* ── Highlight row ── */
+    .highlight-row {
+      background: #fff8ed;
+      border: 1px solid #e8d9a0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: 0.87rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-top: 0.75rem;
+    }
+    .highlight-row .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    /* ── Timing badge ── */
+    .timing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--forest);
+      color: var(--ivory);
+      border-radius: 999px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    /* ── Warning box ── */
+    .warning-box {
+      background: #fff5f5;
+      border: 1px solid #f5c6c6;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: 0.87rem;
+      line-height: 1.55;
+    }
+    .warning-box .warning-title {
+      font-weight: 700;
+      color: #c0392b;
+      margin-bottom: 0.5rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .contact-card .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--forest);
+    }
+    .contact-card .role { font-size: 0.8rem; color: var(--mute); text-transform: uppercase; letter-spacing: 0.1em; }
+    .contact-card .links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+    .contact-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      color: var(--forest);
+      text-decoration: none;
+      border: 1px solid var(--forest);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .contact-card a:hover { background: var(--forest); color: var(--ivory); }
+
+    /* ── Footer note ── */
+    .footer-note {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--mute);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .section-body { padding-left: 0; margin-top: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo-link" href="/">
+      <img src="../black_logo.png" alt="iTowers Exente" />
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/residents">Residents</a>
+      <a href="/visitors">Visitors</a>
+      <a href="/amenities">Amenities</a>
+      <a href="/policies">Policies</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="page">
+
+    <!-- Hero -->
+    <div class="sop-hero">
+      <div class="sop-eyebrow">SOP — Society Guidelines</div>
+      <h1 class="sop-title">Move-In &amp; Move-Out Policy</h1>
+      <div class="sop-meta">
+        <span><strong>Effective:</strong> 1 December 2025</span>
+        <span><strong>Issued by:</strong> I-Towers Apartment Owners Association (ITAOA)</span>
+        <span><strong>Version:</strong> 1.0</span>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro-box">
+      These guidelines govern all Move-In and Move-Out activities within I-Towers Exente premises. They are intended to preserve common areas, ensure orderly movement, and maintain security and safety for all residents. Compliance is mandatory for all apartment owners and their tenants.
+    </div>
+
+    <!-- 1. Charges -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div class="section-title">Applicable Charges</div>
+      </div>
+      <div class="section-body">
+        <div class="charge-grid">
+          <div class="charge-card highlight">
+            <div class="label">Move-In / Move-Out Fee</div>
+            <div class="amount">₹2,500</div>
+            <div class="note">Per instance — non-refundable</div>
+          </div>
+          <div class="charge-card">
+            <div class="label">Security Deposit</div>
+            <div class="amount">₹5,000</div>
+            <div class="note">Refundable after damage verification</div>
+          </div>
+          <div class="charge-card">
+            <div class="label">Total</div>
+            <div class="amount">₹7,500</div>
+            <div class="note">Fee via MyGate + deposit to FM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Responsibility for Damages -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div class="section-title">Responsibility for Damages</div>
+      </div>
+      <div class="section-body">
+        <ul class="rule-list">
+          <li>Any damage to common areas or building property during Move-In / Move-Out is chargeable to the apartment owner — regardless of whether caused by the tenant, hired vendors, helpers, or associated personnel.</li>
+          <li>The Association may deduct repair costs from the security deposit.</li>
+          <li>If damages exceed the deposit amount, additional costs will be recovered from the owner.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. Scheduling & Notice -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div class="section-title">Scheduling &amp; Prior Notice</div>
+      </div>
+      <div class="section-body">
+        <ul class="rule-list">
+          <li>A minimum of <strong>24 hours' written or verbal notice</strong> must be given to the Facility Manager before any Move-In / Move-Out.</li>
+          <li>Movement outside permitted hours will not be allowed under any circumstances.</li>
+        </ul>
+        <div class="timing-badge">
+          ⏰ &nbsp;Permitted Hours: 10:00 AM — 6:00 PM only
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Payment Process -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <div class="section-title">Payment Process</div>
+      </div>
+      <div class="section-body">
+        <ul class="rule-list">
+          <li>The <strong>Move-In / Move-Out fee of ₹2,500</strong> is paid online via <strong>MyGate</strong> before the move begins.</li>
+          <li>The <strong>security deposit of ₹5,000</strong> is paid directly to the <strong>Facility Manager</strong> in cash or bank transfer before the move begins.</li>
+          <li>The FM will issue a receipt for the deposit as proof of payment.</li>
+        </ul>
+        <div class="highlight-row">
+          <span class="icon">📱</span>
+          <span>Complete the MyGate payment first, then coordinate with the FM to hand over the deposit. Keep both receipts until the deposit is refunded.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Operational Guidelines -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <div class="section-title">Operational Guidelines</div>
+      </div>
+      <div class="section-body">
+        <ul class="rule-list">
+          <li>All vendors, packers, transport vehicles, and helpers must be <strong>registered at the main gate</strong> and comply with security checks.</li>
+          <li>Movement of furniture and goods must not block lobbies, staircases, or emergency exits at any time.</li>
+          <li><strong>Only service elevators</strong> may be used. Residential elevators are strictly prohibited for Move-In / Move-Out activities.</li>
+          <li>Protective coverings must be used in elevators wherever possible to prevent scratches and dents.</li>
+          <li>No goods should be left unattended in common areas.</li>
+          <li>Noise, dust, and disturbance must be minimised at all times.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6. Parking -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <div class="section-title">Parking &amp; Vehicle Guidelines</div>
+      </div>
+      <div class="section-body">
+        <ul class="rule-list">
+          <li>Moving vehicles must park only in the <strong>designated loading/unloading area</strong> in front of the blocks.</li>
+          <li>Drivers must follow all instructions from security personnel.</li>
+          <li>Overnight parking for moving trucks or loaders is <strong>strictly not permitted</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7. Penalties -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <div class="section-title">Penalties &amp; Non-Compliance</div>
+      </div>
+      <div class="section-body">
+        <div class="warning-box">
+          <div class="warning-title">Non-compliance may result in:</div>
+          <ul class="rule-list">
+            <li>Forfeiture of the security deposit</li>
+            <li>Additional penalties determined by the Association</li>
+            <li>Restrictions on future Move-In / Move-Out activities</li>
+            <li>Escalated penalties for false declarations, unauthorised movement, or repeated violations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Special Notes -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">8</div>
+        <div class="section-title">Special Notes</div>
+      </div>
+      <div class="section-body">
+        <ul class="rule-list">
+          <li>Apartment owners are responsible for ensuring their <strong>tenants are fully informed</strong> about this policy before handover of the unit.</li>
+          <li>Move-In / Move-Out will only be permitted after <strong>all dues to the Association are cleared</strong>.</li>
+          <li>The Association reserves the right to update these guidelines periodically.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 9. Contact -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">9</div>
+        <div class="section-title">Contact</div>
+      </div>
+      <div class="section-body">
+        <div class="contact-card">
+          <div class="role">Facility Manager</div>
+          <div class="links">
+            <a href="tel:+919845220671">📞 +91 98452 20671</a>
+            <a href="mailto:pmitower.paradigm@gmail.com">✉ pmitower.paradigm@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-note">
+      <span>I-Towers Apartment Owners Association (ITAOA) · Electronic City, Bengaluru</span>
+      <span>Effective 1 December 2025</span>
+    </div>
+
+  </div>
+</body>
+</html>

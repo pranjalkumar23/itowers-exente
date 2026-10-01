@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/static/js/bundle.js",
+    "index.html": "/index.html",
+    "bundle.js.map": "/static/js/bundle.js.map",
+    "main.hot-update.js.map": "/main.9c60e22b9f76f98a3aa2.hot-update.js.map"
+  },
+  "entrypoints": [
+    "static/js/bundle.js",
+    "main.9c60e22b9f76f98a3aa2.hot-update.js"
+  ]
+}
